@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: places
+#
+#  id               :integer          not null, primary key
+#  entrance_id      :string(255)
+#  node_id          :string(255)
+#  place_id         :string(255)
+#  name             :string(255)
+#  entrance_type    :integer
+#  door_type        :integer
+#  level_difference :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  entrance_id: MyString
+  node_id: MyString
+  place_id: MyString
+  name: MyString
+  entrance_type: 1
+  door_type: 1
+  level_difference: 1
+
+two:
+  entrance_id: MyString
+  node_id: MyString
+  place_id: MyString
+  name: MyString
+  entrance_type: 1
+  door_type: 1
+  level_difference: 1
