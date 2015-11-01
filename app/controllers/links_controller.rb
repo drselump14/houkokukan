@@ -7,7 +7,7 @@ class LinksController < ApplicationController
     end
 
     # return shortest path
-    shortest_path = Path.new(start, finish).shortest_path
+    shortest_path = Path.new(start, finish, params).shortest_path
 
     # convert node to coordinate
     coordinate = Node.convert_from_node_id_to_coordinate(shortest_path.first)
