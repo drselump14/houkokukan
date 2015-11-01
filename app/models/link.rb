@@ -17,4 +17,7 @@
 #
 
 class Link < ActiveRecord::Base
+  def self.to_graph_array
+    self.select(:start_node_id, :finish_node_id, :length).map { |r| [r.start_node_id.to_sym, r.finish_node_id.to_sym, r.length] }
+  end
 end
