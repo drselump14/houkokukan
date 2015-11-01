@@ -9,8 +9,8 @@ namespace :import_link_data do
                  link_type: row[3],
                  width: row[11],
                  level_difference: row[22],
-                 level_latitude: row[23],
-                 level_longitude: row[24],
+                 level_latitude: Coordinate.to_decimal(row[23] || ''),
+                 level_longitude: Coordinate.to_decimal(row[24] || ''),
                  dot_block: row[33],
                  length: row[48]
                  )
