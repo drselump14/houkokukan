@@ -19,6 +19,8 @@
 class Link < ActiveRecord::Base
   belongs_to :start_node, class_name: 'Node'
   belongs_to :finish_node, class_name: 'Node'
+
+  scope :without_braille_block, -> { where(dot_block: false) }
   def self.to_graph_array
     self.select(:start_node_id, :finish_node_id, :length).map { |r| [r.start_node_id.to_sym, r.finish_node_id.to_sym, r.length] }
   end

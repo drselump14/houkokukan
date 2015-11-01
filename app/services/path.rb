@@ -2,10 +2,11 @@ class Path
   attr_reader :start, :finish, :graph
 
   # start & finish は ノードID
-  def initialize(start, finish)
+  def initialize(start, finish, options = {})
     @start = start
     @finish = finish
-    @graph = Graph.new(Link.to_graph_array)
+    links = Link.without_braille_block if options[:without_braille_block]
+    @graph = Graph.new( (links || Link.all).to_graph_array )
   end
 
   # return [ [node_id_1, node_id_2, ...], length ]
