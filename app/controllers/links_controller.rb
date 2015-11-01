@@ -1,14 +1,18 @@
 class LinksController < ApplicationController
   def index
-    start = params[:start]
-    finish = params[:finish]
+    case params[:mode]
+    when 'place_name'
+      start = Place.find_by(name: params[:start]).node_id
+      finish = Place.find_by(name: params[:finish]).node_id
+    end
 
     # return shortest path
     shortest_path = Path.new(start, finish).shortest_path
 
-    length = shortest_path.last
-
     # convert node to coordinate
     coordinate = Node.convert_from_node_id_to_coordinate(shortest_path.first)
+    respond_to do |format|
+      format.json { render json: coordinate }
+    end
   end
 end
