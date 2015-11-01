@@ -5,8 +5,8 @@
 #  id         :integer          not null, primary key
 #  node_id    :string(255)
 #  address    :string(255)
-#  latitude   :float(24)
-#  longitude  :float(24)
+#  latitude   :decimal(15, 10)
+#  longitude  :decimal(15, 10)
 #  height     :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

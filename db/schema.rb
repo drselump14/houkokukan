@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151101011514) do
+ActiveRecord::Schema.define(version: 20151101042846) do
 
   create_table "links", force: :cascade do |t|
     t.string   "link_id",          limit: 255
@@ -34,11 +34,11 @@ ActiveRecord::Schema.define(version: 20151101011514) do
   create_table "nodes", force: :cascade do |t|
     t.string   "node_id",    limit: 255
     t.string   "address",    limit: 255
-    t.float    "latitude",   limit: 24
-    t.float    "longitude",  limit: 24
+    t.decimal  "latitude",               precision: 15, scale: 10
+    t.decimal  "longitude",              precision: 15, scale: 10
     t.integer  "height",     limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
   end
 
   add_index "nodes", ["node_id"], name: "index_nodes_on_node_id", unique: true, using: :btree
@@ -54,5 +54,25 @@ ActiveRecord::Schema.define(version: 20151101011514) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "uuid",       limit: 255
+    t.string   "title",      limit: 255
+    t.string   "subtitle",   limit: 255
+    t.string   "reviewer",   limit: 255
+    t.text     "content",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "ucodes", force: :cascade do |t|
+    t.string   "uuid",       limit: 255
+    t.string   "place_id",   limit: 255
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "ucodes", ["uuid"], name: "index_ucodes_on_uuid", using: :btree
 
 end

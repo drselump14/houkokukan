@@ -1,20 +1,19 @@
 # == Schema Information
 #
-# Table name: nodes
+# Table name: reviews
 #
 #  id         :integer          not null, primary key
-#  node_id    :string(255)
-#  address    :string(255)
-#  latitude   :decimal(15, 10)
-#  longitude  :decimal(15, 10)
-#  height     :integer
+#  uuid       :string(255)
+#  title      :string(255)
+#  subtitle   :string(255)
+#  content    :text(65535)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'test_helper'
 
-class NodeTest < ActiveSupport::TestCase
+class ReviewTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
