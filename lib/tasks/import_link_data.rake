@@ -12,6 +12,7 @@ namespace :import_link_data do
                  level_latitude: row[23],
                  level_longitude: row[24],
                  dot_block: row[33],
+                 length: row[48]
                  )
     end
   end
